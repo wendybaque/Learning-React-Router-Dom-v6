@@ -11,7 +11,7 @@ return {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="/">
-        Navbar
+        React Router Dom App
       </a>
       <button
         className="navbar-toggler"
@@ -27,10 +27,13 @@ return {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
+            <NavLink className="nav-link" to="/Users" style={navStyle}>Users</NavLink>
+          </li>
+          <li className="nav-item">
             <NavLink className="nav-link" to="/">Docs</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" style={navStyle}to="/tutorial">Tutorial</NavLink>
+            <NavLink className="nav-link" style={navStyle} to="/tutorial">Tutorial</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className={(navInfo) => navInfo.isActive ? "nav-link active" : "nav-link"} to="/community">Community</NavLink>
