@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Docs from './components/Docs';
 import Tutorials from './components/Tutorials';
@@ -13,6 +13,8 @@ import Users from './components/Users';
 import Profile from './components/Profile';
 import NoteUSers from './components/NoteUSers';
 // Navigate sert à rediriger vers un chemin pas forcément logique (ici le / vers docs et pas la page d'accueil)
+
+const LazyBlog = React.lazy(() => import('./components/Blog'));
 
 function App() {
   const [construction, setConstruction] = useState({Docs:false, Tutorials:true, Community:true});
@@ -40,6 +42,12 @@ function App() {
           <Route path=":profileId" element={<Profile/>} />
           <Route path="noteUsers" element={<NoteUSers/>} />
         </Route>
+        {/* <Route path="/blog" element={<Blog/>}/> */}
+        {/* Avec Lazy et Suspense, cela attend que le cache soit disponible avant de charger toute la page. */}
+        <Route path="/blog" element={
+          <React.Suspense fallback={<div>Chargement des articles...</div>}>
+            <LazyBlog/>
+          </React.Suspense>}/>
       </Routes>
       
     </>

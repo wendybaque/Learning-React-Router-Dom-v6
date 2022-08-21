@@ -36,6 +36,9 @@ return {
             <NavLink className="nav-link" style={navStyle} to="/tutorial">Tutorial</NavLink>
           </li>
           <li className="nav-item">
+            <NavLink className="nav-link" to="/blog">Blog</NavLink>
+          </li>
+          <li className="nav-item">
             <NavLink className={(navInfo) => navInfo.isActive ? "nav-link active" : "nav-link"} to="/community">Community</NavLink>
           </li>
         </ul>
